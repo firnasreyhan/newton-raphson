@@ -14,7 +14,6 @@ import java.util.Scanner;
  */
 public class Main {
 
-    private static DecimalFormat decimalFormat = new DecimalFormat();
     private static Scanner scanner = new Scanner(System.in);
 
     private static ArrayList<Integer> arrayListPersamaan = new ArrayList<>();
@@ -27,8 +26,6 @@ public class Main {
     private static String iterasi;
 
     public static void main(String[] args) {
-        
-        decimalFormat.applyPattern("###.########");
 
         do {
             ulang = "t";
@@ -94,13 +91,16 @@ public class Main {
             xr = xr1;
         } while (iterasi.equalsIgnoreCase("Lanjut"));
         
+        System.out.println("");
+        System.out.println("r\txr\t\txr+1\t\tf(xr)\t\tf'(xr)\t\t|xr+1 - xr|\tIterasi");
+        System.out.println("------------------------------------------------------------------------------------------------");
         for (int j = 0; j < arrayListNewtonRaphson.size(); j++) {
             System.out.print(String.valueOf(j));
-            System.out.print("\t" + decimalFormat.format(arrayListNewtonRaphson.get(j).getXr()));
-            System.out.print("\t" + decimalFormat.format(arrayListNewtonRaphson.get(j).getXr1()));
-            System.out.print("\t" + decimalFormat.format(arrayListNewtonRaphson.get(j).getFxr()));
-            System.out.print("\t" + decimalFormat.format(arrayListNewtonRaphson.get(j).getFtxr()));
-            System.out.print("\t" + decimalFormat.format(arrayListNewtonRaphson.get(j).getXr1xr()));
+            System.out.format("\t%.10f", arrayListNewtonRaphson.get(j).getXr());
+            System.out.format("\t%.10f", arrayListNewtonRaphson.get(j).getXr1());
+            System.out.format("\t%.10f", arrayListNewtonRaphson.get(j).getFxr());
+            System.out.format("\t%.10f", arrayListNewtonRaphson.get(j).getFtxr());
+            System.out.format("\t%.10f", arrayListNewtonRaphson.get(j).getXr1xr());
             System.out.print("\t" + arrayListNewtonRaphson.get(j).getIterasi());
             System.out.println("");
         }
